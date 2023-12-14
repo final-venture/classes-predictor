@@ -1,0 +1,42 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+{% include 'students/search.html' %}
+<br>
+
+{% for student in page_obj %}
+<font size="6px">
+    <a href="{{ student.get_absolute_url }}">{{ student.student_id }}</a> - 
+{% if student.subject1 %} <a href="">{{ student.subject1 }}</a> {% endif %}
+{% if student.subject2 %} <a href="">{{ student.subject2 }}</a> {% endif %}
+{% if student.subject3 %} <a href="">{{ student.subject3 }}</a> {% endif %}
+{% if student.subject4 %} <a href="">{{ student.subject4 }}</a> {% endif %}
+{% if student.subject5 %} <a href="">{{ student.subject5 }}</a> {% endif %}
+{% if student.subject6 %} <a href="">{{ student.subject6 }}</a> {% endif %}
+{% if student.subject7 %} <a href="">{{ student.subject7 }}</a> {% endif %}
+{% if student.subject8 %} <a href="">{{ student.subject8 }}</a> {% endif %}
+{% if student.subject9 %} <a href="">{{ student.subject9 }}</a> {% endif %}
+{% if student.subject10 %} <a href="">{{ student.subject10 }}</a> {% endif %}
+    <br>
+</font>
+{% endfor %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+{% endblock %}

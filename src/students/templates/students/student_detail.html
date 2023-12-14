@@ -1,0 +1,20 @@
+{% include 'navbar.html' %} 
+{% block content %}
+<u><h1>{{ object.student_id }}</h1></u>
+<img src="https://www.pngarts.com/files/10/Default-Profile-Picture-PNG-Download-Image.png" alt="Profile Picture" width="300px" height="300px">
+<h1>{{ object.first_name }} {{ object.last_name}}</h1>
+<h2>Graduation Year: {{ object.grad_year }}</h2>
+<u><h3>Subjects</h3></u>
+<font size="5px">
+{% if object.subject1 %} {{ object.subject1 }} {% endif %}
+{% if object.subject2 %} {{ object.subject2 }} {% endif %}
+{% if object.subject3 %} {{ object.subject3 }} {% endif %}
+{% if object.subject4 %} {{ object.subject4 }} {% endif %}
+{% if object.subject5 %} {{ object.subject5 }} {% endif %}
+{% if object.subject6 %} {{ object.subject6 }} {% endif %}
+{% if object.subject7 %} {{ object.subject7 }} {% endif %}
+{% if object.subject8 %} {{ object.subject8 }} {% endif %}
+{% if object.subject9 %} {{ object.subject9 }} {% endif %}
+{% if object.subject1 %} {{ object.subject1 }} {% endif %}
+</font>
+{% endblock %}
