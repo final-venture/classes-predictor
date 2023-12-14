@@ -6,7 +6,7 @@
 
 {% for student in page_obj %}
 <font size="6px">
-    <a href="{{ student.get_absolute_url }}">{{ student.student_id }}</a> - 
+    <a href="{{ student.get_student_url }}">{{ student.student_id }}</a> - 
 {% if student.subject1 %} <a href="">{{ student.subject1 }}</a> {% endif %}
 {% if student.subject2 %} <a href="">{{ student.subject2 }}</a> {% endif %}
 {% if student.subject3 %} <a href="">{{ student.subject3 }}</a> {% endif %}

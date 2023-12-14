@@ -1,0 +1,26 @@
+{% extends 'base.html' %} 
+{% block content %}
+{% include 'subjects/search_detail.html' %}
+<u><h1>{{ subject }}</h1></u>
+
+{% for student_object in queryset %}
+<font size="6px"><a href='../../students/{{ student_object.student_id }}'>{{ student_object.first_name }} {{ student_object.last_name }}</a></font>
+<br>
+{% endfor %}
+
+<h1>{{ object.first_name }} {{ object.last_name}}</h1>
+<u><h3>Enrolled Students:</h3></u>
+<font size="5px">
+{% if object.subject1 %} {{ object.subject1 }} {% endif %}
+{% if object.subject2 %} {{ object.subject2 }} {% endif %}
+{% if object.subject3 %} {{ object.subject3 }} {% endif %}
+{% if object.subject4 %} {{ object.subject4 }} {% endif %}
+{% if object.subject5 %} {{ object.subject5 }} {% endif %}
+{% if object.subject6 %} {{ object.subject6 }} {% endif %}
+{% if object.subject7 %} {{ object.subject7 }} {% endif %}
+{% if object.subject8 %} {{ object.subject8 }} {% endif %}
+{% if object.subject9 %} {{ object.subject9 }} {% endif %}
+{% if object.subject1 %} {{ object.subject1 }} {% endif %}
+</font>
+
+{% endblock %}

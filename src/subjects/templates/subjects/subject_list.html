@@ -1,9 +1,18 @@
 {% extends 'base.html' %} 
 {% block content %}
 
-{% include 'students/search.html' %}
+{% include 'subjects/search_list.html' %}
 <br>
 
-
+{% for subject_tuple in subject_list %}
+{% for subject in subject_tuple %}
+{% if subject != None %}
+<font size="6px">
+<a href="./{{ subject }}">{{ subject }}</a>
+</font>
+<br>
+{% endif %}
+{% endfor %}
+{% endfor %}
 
 {% endblock %}

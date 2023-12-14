@@ -24,7 +24,4 @@ class Course(models.Model):
     class Meta:
         managed = False
         db_table = 'course'
-        
-    def get_absolute_url(self):
-        return reverse("subjects:subject-detail", kwargs={"pk": self.student_id})
     
