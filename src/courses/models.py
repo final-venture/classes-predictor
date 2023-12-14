@@ -21,13 +21,4 @@ class Course(models.Model):
     class Meta:
         managed = False
         db_table = 'course'
-        
-    def get_student_url(self):
-        return reverse("students:student-detail", kwargs={"pk": self.student_id})
-    
-    def get_subject_url(self):
-        return reverse("students:student-detail", kwargs={"pk": self.student_id})
-    
-    def get_class_url(self):
-        return reverse("students:student-detail", kwargs={"pk": self.student_id})
     

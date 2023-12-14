@@ -1,0 +1,20 @@
+{% include 'navbar.html' %} 
+{% block content %}
+
+<u><h1>{{ object.student_id }}</h1></u>
+
+<img src="https://www.pngarts.com/files/10/Default-Profile-Picture-PNG-Download-Image.png" alt="Profile Picture" width="300px" height="300px">
+
+<h1>{{ object.first_name }} {{ object.last_name}}</h1>
+<h2>Graduation Year: <a href="">{{ object.grad_year }}</a></h2>
+<u><h3>Subjects</h3></u>
+
+<font size="5px">
+{% for student_subject in student_subjects %}
+{% if student_subject %} 
+<a href="{% url 'courses:subject-detail' subject=student_subject %}">{{ student_subject }}</a> 
+{% endif %}
+{% endfor %}
+</font>
+
+{% endblock %}

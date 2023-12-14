@@ -1,0 +1,45 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<u>
+    <h1>Students</h1>
+</u>
+{% include 'courses/search_student_list.html' %}
+<br>
+
+{% for object in page_obj %}
+<font size="6px">
+    <a href="{% url 'courses:student-detail' pk=object.student_id %}">{{ object.student_id }}</a> - 
+    {% if object.subject1 %} <a href="{% url 'courses:subject-detail' subject=object.subject1 %}">{{ object.subject1 }}</a> {% endif %}
+    {% if object.subject2 %} <a href="{% url 'courses:subject-detail' subject=object.subject2 %}">{{ object.subject2 }}</a> {% endif %}
+    {% if object.subject3 %} <a href="{% url 'courses:subject-detail' subject=object.subject3 %}">{{ object.subject3 }}</a> {% endif %}
+    {% if object.subject4 %} <a href="{% url 'courses:subject-detail' subject=object.subject4 %}">{{ object.subject4 }}</a> {% endif %}
+    {% if object.subject5 %} <a href="{% url 'courses:subject-detail' subject=object.subject5 %}">{{ object.subject5 }}</a> {% endif %}
+    {% if object.subject6 %} <a href="{% url 'courses:subject-detail' subject=object.subject6 %}">{{ object.subject6 }}</a> {% endif %}
+    {% if object.subject7 %} <a href="{% url 'courses:subject-detail' subject=object.subject7 %}">{{ object.subject7 }}</a> {% endif %}
+    {% if object.subject8 %} <a href="{% url 'courses:subject-detail' subject=object.subject8 %}">{{ object.subject8 }}</a> {% endif %}
+    {% if object.subject9 %} <a href="{% url 'courses:subject-detail' subject=object.subject9 %}">{{ object.subject9 }}</a> {% endif %}
+    {% if object.subject10 %} <a href="{% url 'courses:subject-detail' subject=object.subject10 %}">{{ object.subject10 }}</a> {% endif %}
+    <br>
+</font>
+{% endfor %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+{% endblock %}

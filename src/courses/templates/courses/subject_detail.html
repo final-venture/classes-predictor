@@ -1,0 +1,14 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<u><h1>{{ subject }}</h1></u>
+<u><h3>Enrolled Students:</h3></u>
+{% include 'courses/search_subject_detail.html' %}
+<br>
+
+{% for student_object in queryset %}
+<font size="6px"><a href='{% url 'courses:student-detail' pk=student_object.student_id %}'>{{ student_object.first_name }} {{ student_object.last_name }}</a></font>
+<br>
+{% endfor %}
+
+{% endblock %}

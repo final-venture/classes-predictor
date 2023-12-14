@@ -2,9 +2,9 @@
 <h1>Home</h1>
 
 <h3>Look up by:</h3>
-<h3><a href="{% url 'students:student-list' %}">Students</a> 
-    <a href="{% comment %}{% url 'classes:class-list' %}{% endcomment %}">Classes</a>  
-    <a href="{% url 'subjects:subject-list' %}">Subjects</a>
+<h3><a href="{% url 'courses:student-list' %}">Student</a> 
+    <a href="{% url 'courses:subject-list' %}">Subject</a>
+    <a href="{% comment %}{% url 'classes:class-list' %}{% endcomment %}">Class</a>  
 </h3>
 
 {% endblock %}

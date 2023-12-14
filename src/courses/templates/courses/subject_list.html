@@ -1,7 +1,10 @@
 {% extends 'base.html' %} 
 {% block content %}
 
-{% include 'subjects/search_list.html' %}
+<u>
+    <h1>Subjects</h1>
+</u>
+{% include 'courses/search_subject_list.html' %}
 <br>
 
 {% for subject_tuple in subject_list %}
