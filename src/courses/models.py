@@ -22,3 +22,11 @@ class Course(models.Model):
         managed = False
         db_table = 'course'
     
+    def get_student_subjects(self):
+        student_subjects = []
+        for i in range(1,11):
+            new_subject = eval(f'self.subject{i}')
+            if new_subject:
+                student_subjects.append(new_subject)
+        return student_subjects
+    

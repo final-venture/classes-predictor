@@ -1,14 +1,20 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% block content %}
+  <u><h1>{{ subject }} - Enrolled Students:</h1></u>
+  {% include 'courses/search_subject_detail.html' %}
+  <br />
 
-<u><h1>{{ subject }}</h1></u>
-<u><h3>Enrolled Students:</h3></u>
-{% include 'courses/search_subject_detail.html' %}
-<br>
-
-{% for student_object in queryset %}
-<font size="6px"><a href='{% url 'courses:student-detail' pk=student_object.student_id %}'>{{ student_object.first_name }} {{ student_object.last_name }}</a></font>
-<br>
-{% endfor %}
-
+  {% for queryset in querysets %}
+    {% if queryset %}
+      <u>
+        <h2>Class {{ forloop.counter }}:</h2>
+      </u>
+    {% endif %}
+  {% for object in queryset %}
+    <font size="6px">
+      <a href="{% url 'courses:student-detail' pk=object.student_id %}">{{ object.first_name }} {{ object.last_name }}</a>
+    </font>
+    <br />
+  {% endfor %}
+  {% endfor %}
 {% endblock %}
